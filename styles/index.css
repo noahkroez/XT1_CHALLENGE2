@@ -1,0 +1,449 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+}
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.html{
+    font-size: 62.5%;
+}
+
+.navbar input[type="checkbox"],
+.navbar .hamburger-lines{
+    display: none;
+}
+
+.container{
+    max-width: 1200px;
+    width: 90%;
+    margin: auto;
+}
+
+.navbar{
+    width: 100%;
+    background: #fff;
+    color: #000;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+}
+
+.navbar-container{
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+}
+
+.menu-items{
+    order: 2;
+    display: flex;
+}
+.logo{
+    order: 1;
+    font-size: 2.3rem;
+}
+
+.menu-items li{
+    list-style: none;
+    margin-left: 1.4rem;
+    font-size: 1.2rem;
+}
+
+.menu-items li a{
+    font-family: 'Roboto Slab';
+}
+
+.navbar a{
+    color: #000000;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar a:hover{
+    color: rgba(89, 58, 0, 1);
+}
+
+@media (max-width: 768px){
+    .navbar{
+        opacity: 0.95;
+    }
+
+    .navbar-container input[type="checkbox"],
+    .navbar-container .hamburger-lines{
+        display: block;
+    }
+
+    .navbar-container{
+        display: block;
+        position: relative;
+    }
+
+    .navbar-container input[type="checkbox"]{
+        position: absolute;
+        display: block;
+        height: 32px;
+        width: 30px;
+        top: 20px;
+        left: 20px;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .navbar-container .hamburger-lines{
+        display: block;
+        height: 28px;
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .navbar-container .hamburger-lines .line{
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: #333;
+    }
+    
+    .navbar-container .hamburger-lines .line1{
+        transform-origin: 0% 0%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line2{
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .navbar-container .hamburger-lines .line3{
+        transform-origin: 0% 100%;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .navbar .menu-items{
+        padding-top: 100px;
+        background: #fff;
+        height: 100vh;
+        max-width: 300px;
+        transform: translate(-150%);
+        display: flex;
+        flex-direction: column;
+        margin-left: -40px;
+        padding-left: 40px;
+        transition: transform 0.5s ease-in-out;
+        box-shadow:  5px 0px 10px 0px #aaa;
+        overflow: scroll;
+    }
+
+    .navbar .menu-items li{
+        margin-bottom: 1.8rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+
+    .logo{
+        position: absolute;
+        top: 10px;
+        right: 15px;
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .menu-items{
+        transform: translateX(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line1{
+        transform: rotate(45deg);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line2{
+        transform: scaleY(0);
+    }
+
+    .navbar-container input[type="checkbox"]:checked ~ .hamburger-lines .line3{
+        transform: rotate(-45deg);
+    }
+
+}
+
+@media (max-width: 967px){
+    .navbar-container input[type="checkbox"]:checked ~ .logo{
+        display: none;
+    }
+}
+
+
+
+button {
+  padding: 10px 15px;
+  background-color: #fcf8ad;
+  color: rgb(89, 58, 0);
+  font-weight: medium;
+  text-decoration: underline;
+  border: none;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+}
+
+
+
+.logo-container img {
+  height: 80px;
+}
+
+.grid {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  padding: 10px 20px;
+  gap: 20px;
+  grid-template-rows: 100px repeat(2, 300px) repeat(2, 500px) repeat(2, 300px);
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'header'
+    'assortiment'
+    'evenementen'
+    'gegevens'
+    'special'
+    'geschiedenis'
+    'contact';
+}
+
+.tile {
+  position: relative;
+  height: 100%;
+  z-index: -1;
+}
+
+.big-image {
+  grid-area: header;
+}
+
+.assortiment {
+  grid-area: assortiment;
+}
+
+.gegevens {
+  grid-area: gegevens;
+  color: #fff;
+}
+
+.gegevens .tile-title {
+  margin: 0 0 5px 0;
+}
+
+.gegevens_tijd {
+  color: #fcf8ad;
+}
+
+.gegevens_klein {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.gegevens_klein span {
+  font-size: 14px;
+  margin: 3px 0;
+}
+
+.evenementen {
+  grid-area: evenementen;
+}
+
+.geschiedenis {
+  grid-area: geschiedenis;
+}
+
+.special {
+  grid-area: special;
+  background-color: #fcf8ad;
+  display: flex;
+  flex-direction: column;
+  color: rgb(89, 58, 0);
+}
+
+.special-text-container {
+  display: flex;
+  width: 100%;
+  height: 50%;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.special-text {
+  max-width: 80%;
+}
+
+.special-text-container .tile-title {
+  color: rgb(89, 58, 0);
+}
+
+.special-image-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+.special-prijs {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.contact {
+  grid-area: contact;
+}
+
+.content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(89, 58, 0, 0.5);
+}
+
+.contact .content {
+  background-color: rgba(89, 58, 0, 1);
+}
+
+.tile-title {
+  font-size: 18px;
+  font-family: 'Roboto Slab', serif;
+  color: #fff;
+}
+
+.tile img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media only screen and (min-width: 412px) {
+  .grid {
+    padding: 20px 40px;
+    gap: 20px;
+    grid-template-rows: repeat(5, 200px);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      'header header'
+      'assortiment evenementen'
+      'gegevens gegevens'
+      'special special'
+      'geschiedenis contact';
+  }
+
+  .special {
+    flex-direction: row;
+  }
+
+  .special-image-container {
+    position: relative;
+    order: 1;
+    width: 300px;
+    height: 100%;
+  }
+
+  .special-text-container {
+    height: 100%;
+  }
+}
+
+.contact button {
+  margin-top: 15px;
+}
+
+@media only screen and (min-width: 769px) {
+  header {
+    height: 125px;
+    max-height: 125px;
+  }
+
+
+  .grid {
+    padding: 20px 40px;
+    gap: 20px;
+    grid-template-rows: 300px repeat(4, 200px);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      'header header header'
+      'gegevens gegevens assortiment'
+      'gegevens gegevens evenementen'
+      'special special geschiedenis'
+      'special special contact';
+  }
+
+  .special {
+    flex-direction: column;
+  }
+
+  .tile-title {
+    font-size: 20px;
+  }
+
+  .special-image-container {
+    order: 0;
+    height: 50%;
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  .grid {
+    height: calc(100vh - 125px);
+    padding: 20px 40px;
+    gap: 20px;
+    grid-template-rows: 5fr 4fr 4fr;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-areas:
+      'header header header'
+      'assortiment gegevens evenementen'
+      'geschiedenis special contact';
+  }
+
+  .special {
+    flex-direction: row;
+  }
+
+  .special-image-container {
+    position: relative;
+    order: 1;
+    width: 300px;
+    height: 100%;
+  }
+
+  .special-text-container {
+    height: 100%;
+  }
+}
